@@ -1,0 +1,5 @@
+# connect to locator1
+connect 
+
+# output running members
+list members

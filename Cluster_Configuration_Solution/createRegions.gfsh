@@ -1,0 +1,8 @@
+
+connect --locator=localhost[10334]
+
+# Create a replicated region for BookMaster
+create region --name=/BookMaster --type=REPLICATE
+
+# Create partitioned region for Customer but only on member group 'gold'
+create region --name=/Customer --type=PARTITION_REDUNDANT --group=gold

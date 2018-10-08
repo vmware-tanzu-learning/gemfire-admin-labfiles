@@ -1,0 +1,27 @@
+{
+   "roles": [
+     {
+       "name": "admin",
+       "operationsAllowed": [
+       ]
+     },
+     {
+       "name": "member",
+       "operationsAllowed": [
+       ]
+     },
+     {
+       "name": "clientReader",
+       "operationsAllowed": [
+       ],
+       "regions": []
+     }
+   ],
+   "users": [
+     {
+       "name": "admin",
+       "password": "",
+       "roles": []
+     }
+   ]
+ }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  | Persist BookMaster region data.
+  | Persist Customer region data.
+  | Expiration of Customer data.
+-->
+<cache
+    xmlns="http://geode.apache.org/schema/cache" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://geode.apache.org/schema/cache http://geode.apache.org/schema/cache/cache-1.0.xsd"
+    version="1.0" >
+
+    <!-- NOTE: This region can only used by the cacheserver process once a disk store named 'ServerPersistence'
+               has been created. It is intended that the disk store be created via Cluster Configuration using  the
+               following command (with at last one server running):
+                 create disk-store --name=ServerPersistence --dir=persist
+    -->
+    <region name="BookMaster" >
+        <region-attributes refid="REPLICATE_PERSISTENT" disk-store-name="ServerPersistence">
+            <eviction-attributes>
+                <lru-entry-count maximum="2" action="overflow-to-disk"/>
+            </eviction-attributes>
+        </region-attributes>
+    </region>  
+    
+</cache>

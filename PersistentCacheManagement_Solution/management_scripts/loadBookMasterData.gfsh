@@ -1,0 +1,9 @@
+# connect to locator1
+connect
+
+# load BookMaster region data
+import data --region=BookMaster --file=../bookMasterData.gfd --member=server1
+
+# query data from BookMaster region
+query --query="select * from /BookMaster"
+

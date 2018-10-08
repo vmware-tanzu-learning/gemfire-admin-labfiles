@@ -1,0 +1,5 @@
+
+# start server1
+start server --name=server1 --server-port=41121 --locators=localhost[10334] --cache-xml-file=xml/serverCache.xml --classpath=../bookShop-1.0.jar  --J=-Dgemfire.OSProcess.ENABLE_OUTPUT_REDIRECTION=true
+
+

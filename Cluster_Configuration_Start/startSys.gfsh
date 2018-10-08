@@ -1,0 +1,16 @@
+#start locator
+start locator --name=locator1 --J=-Dgemfire.OSProcess.ENABLE_OUTPUT_REDIRECTION=true
+
+#start server1
+start server --name=server1 --server-port=0 --classpath=../bookShop-1.0.jar --mcast-port=0 --log-level=warning --locators=localhost[10334] --J=-Dgemfire.OSProcess.ENABLE_OUTPUT_REDIRECTION=true
+
+#start server2
+start server --name=server2 --server-port=0 --classpath=../bookShop-1.0.jar --mcast-port=0 --log-level=warning --locators=localhost[10334] --J=-Dgemfire.OSProcess.ENABLE_OUTPUT_REDIRECTION=true
+
+#start server3 in gold member group
+start server --name=server3 --group=gold --server-port=0 --classpath=../bookShop-1.0.jar --mcast-port=0 --log-level=warning --locators=localhost[10334] --J=-Dgemfire.OSProcess.ENABLE_OUTPUT_REDIRECTION=true
+
+
+#start server4 in gold member group
+start server --name=server4 --group=gold --server-port=0 --classpath=../bookShop-1.0.jar --mcast-port=0 --log-level=warning --locators=localhost[10334] --J=-Dgemfire.OSProcess.ENABLE_OUTPUT_REDIRECTION=true
+

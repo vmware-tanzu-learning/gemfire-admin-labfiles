@@ -1,0 +1,45 @@
+{
+   "roles": [
+     {
+       "name": "admin",
+       "operationsAllowed": [
+          "CLUSTER:READ",
+          "CLUSTER:WRITE",
+          "CLUSTER:MANAGE",
+          "DATA:MANAGE",
+          "DATA:READ",
+          "DATA:WRITE"
+       ]
+     },
+     {
+       "name": "member",
+       "operationsAllowed": [
+          "CLUSTER:MANAGE"
+       ]
+     },
+     {
+       "name": "clientReader",
+       "operationsAllowed": [
+          "DATA:READ"
+       ]
+     }
+   ],
+   "users": [
+     {
+       "name": "admin",
+       "password": "abc123",
+       "roles": ["admin"]
+     },
+     {
+       "name": "member",
+       "password": "abc123",
+       "roles": ["member"]
+     },
+     {
+        "name": "client",
+        "password": "abc123",
+        "roles": ["clientReader"]
+     }
+      
+   ]
+ }

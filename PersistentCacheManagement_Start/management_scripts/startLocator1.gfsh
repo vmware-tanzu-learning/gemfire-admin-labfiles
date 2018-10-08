@@ -1,0 +1,8 @@
+
+#start locator
+start locator --name=locator1 --J=-Dgemfire.OSProcess.ENABLE_OUTPUT_REDIRECTION=true
+
+#output running members - only locator1 should be running
+list members
+
+

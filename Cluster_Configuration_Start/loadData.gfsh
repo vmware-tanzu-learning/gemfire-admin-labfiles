@@ -1,0 +1,7 @@
+connect --locator=localhost[10334]
+
+#Load BookMaster region data
+import data --region=BookMaster --file=../bookMasterData.gfd --member=server1
+
+#Load Customer region data
+import data --region=Customer --file=../customerData.gfd --member=server3
