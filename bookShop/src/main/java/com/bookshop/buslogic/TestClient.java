@@ -32,9 +32,11 @@ private Region<Integer, Customer> customers;
 
 	public void initializeClientCache()
 	{
-		cache = new ClientCacheFactory().set("name", "ClientWorker")
+		this.cache = GemFireClientCacheHelper.create(false);
+
+		/*cache = new ClientCacheFactory().set("name", "ClientWorker")
 				.set("cache-xml-file", "xml/clientCache.xml")
-				.create();
+				.create();*/
 		
 		customers = cache.getRegion("Customer");
 

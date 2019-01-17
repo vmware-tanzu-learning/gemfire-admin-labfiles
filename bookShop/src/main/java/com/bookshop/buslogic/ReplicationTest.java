@@ -35,10 +35,12 @@ public class ReplicationTest
 	
 	public void initializeCache()
 	{
-		this.cache = new ClientCacheFactory()
+		this.cache = GemFireClientCacheHelper.create(false);
+/*
+/*		this.cache = new ClientCacheFactory()
         .set("name", "ClientWorker")
         .set("cache-xml-file", "xml/clientCache.xml")
-        .create();
+        .create();*/
 	}
 	
 	public void initializeBookMasterRegion()
