@@ -1,5 +1,0 @@
-# connect to locator1
-connect 
-
-# stop All servers
-shutdown --include-locators=true

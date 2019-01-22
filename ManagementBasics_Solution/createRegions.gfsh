@@ -1,0 +1,3 @@
+create region --name=BookMaster --type=REPLICASTE --if-not-exists
+
+create region --name=Customer --type=PARITION_REDUNDANT --if-not-exists

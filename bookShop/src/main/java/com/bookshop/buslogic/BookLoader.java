@@ -39,10 +39,13 @@ public class BookLoader
 		
 		public void initializeCache()
 		{
+			this.cache = GemFireClientCacheHelper.create(false);
+/*
 			this.cache = new ClientCacheFactory()
 	        .set("name", "ClientWorker")
 	        .set("cache-xml-file", "xml/clientCache.xml")
 	        .create();
+*/
 		}
 		
 		public void initializeBookMasterRegion()

@@ -35,10 +35,10 @@ private Region<Integer, Customer> customers;
 
 	public void initializeClientCache()
 	{
-		cache = new ClientCacheFactory().set("name", "ClientWorker")
+/*		cache = new ClientCacheFactory().set("name", "ClientWorker")
 				.set("cache-xml-file", "xml/clientCache.xml")
-				.create();
-		
+				.create();*/
+		this.cache = GemFireClientCacheHelper.create(false);
 		customers = cache.getRegion("Customer");
 
 	    System.out.println("Customer Region = " + customers.getFullPath());

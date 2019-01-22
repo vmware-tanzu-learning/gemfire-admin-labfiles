@@ -1,4 +1,0 @@
-connect --locator=localhost[10334]
-
-# This command now shuts down everything
-shutdown --include-locators=true
