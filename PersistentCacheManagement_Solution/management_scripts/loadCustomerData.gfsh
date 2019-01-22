@@ -1,9 +1,0 @@
-# connect to locator1
-connect 
-
-# load Customer region data
-import data --region=Customer --file=../customerData.gfd --member=server1
-
-# query data from Customer region
-query --query="select * from /Customer"
-
