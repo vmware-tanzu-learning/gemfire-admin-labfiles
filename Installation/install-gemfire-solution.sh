@@ -19,6 +19,9 @@ usermod -a -G gemfire student
 systemctl disable firewalld
 systemctl stop firewalld
 
+# Enable ntpd
+systemctl start ntpd
+
 # Unpack GemFire
 tar -xzf $TARFILE -C /opt/pivotal
 GEMPATH=$(find /opt/pivotal -name "pivotal-gemfire*")
