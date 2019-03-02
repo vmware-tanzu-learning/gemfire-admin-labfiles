@@ -6,10 +6,15 @@ import org.apache.geode.cache.client.ClientCacheFactory;
 
 import com.bookshop.domain.BookMaster;
 
+import java.io.*;
+import java.net.URL;
+import java.text.NumberFormat;
+import java.text.ParseException;
 
 
 public class BookLoader
 {
+		static final String BOOKFILE="/BookMaster.csv";
 
 		private ClientCache cache;
 		private Region <Integer, BookMaster> books;
@@ -40,12 +45,6 @@ public class BookLoader
 		public void initializeCache()
 		{
 			this.cache = GemFireClientCacheHelper.create(false);
-/*
-			this.cache = new ClientCacheFactory()
-	        .set("name", "ClientWorker")
-	        .set("cache-xml-file", "xml/clientCache.xml")
-	        .create();
-*/
 		}
 		
 		public void initializeBookMasterRegion()
@@ -54,8 +53,33 @@ public class BookLoader
 			System.out.println("Got the BookMaster Region: " + books);
 		}
 
+		//  BookMaster(int itemNumber, String description, float retailCost,
+		//			int yearPublished, String author, String title)
+		public void populateBooks() {
+			NumberFormat formatter = NumberFormat.getCurrencyInstance();
+			URL url = getClass().getResource(BOOKFILE);
+			InputStream resource = getClass().getResourceAsStream(BOOKFILE);
+			try (BufferedReader br = new BufferedReader(new InputStreamReader(resource))) {
+				String line;
+				line = br.readLine();
+				while ((line = br.readLine()) != null) {
+					String[] lineArray = line.split(",");
+					String[] dateArray=  lineArray[4].split("/");
+					Number number = formatter.parse(lineArray[5]);
+					BookMaster book = new BookMaster(new Integer(lineArray[0]), lineArray[3], number.floatValue(), new Integer(dateArray[2]), lineArray[2], lineArray[1]);
+					books.put(book.getItemNumber(), book);
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ParseException pe) {
+				pe.printStackTrace();
+			}
+		}
+
 		
-		public void populateBooks()
+		public void populateBooks_old()
 		{
 			BookMaster book = new BookMaster(123, "Run on sentences and drivel on all things mundane", (float) 34.99, 2011, "Daisy Mae West", "A Treatise of Treatises");
 			books.put(new Integer(123), book);
