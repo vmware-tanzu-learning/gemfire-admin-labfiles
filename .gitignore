@@ -4,3 +4,7 @@ target
 *.log
 .DS_Store
 pom.xml.bak
+
+#IntelliJ files
+.idea
+*.iml
