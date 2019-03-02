@@ -1,3 +1,4 @@
+connect 
 create region --name=BookMaster --type=REPLICATE --if-not-exists
 
 create region --name=Customer --type=PARTITION_REDUNDANT --if-not-exists

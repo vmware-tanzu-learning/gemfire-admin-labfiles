@@ -1,0 +1,3 @@
+connect
+import data --region=BookMaster --file=/var/gemfire/bookMasterData.gfd --member=server4
+import data --region=Customer --file=/var/gemfire/customerData.gfd --member=server4
