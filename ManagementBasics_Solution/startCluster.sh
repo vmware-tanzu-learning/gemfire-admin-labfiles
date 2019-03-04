@@ -18,6 +18,6 @@ echo "Server start complete. Current member list:"
 
 gfsh -e "connect" -e "list members"
 
-echo "Creating regions if they don't exist and loading data. Be sure you have your data files in $GEMFIRE_WORKING_DIR""
+echo "Creating regions if they don't exist and loading data. Be sure you have your data files in $GEMFIRE_WORKING_DIR"
 gfsh -e "run --file=createRegions.gfsh"
 gfsh -e "run --file=importData.gfsh"
