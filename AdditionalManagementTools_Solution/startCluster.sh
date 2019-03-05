@@ -1,6 +1,6 @@
 export LOCATOR_HOST="ec2-3-86-195-226.compute-1.amazonaws.com"
 
-gfsh start locator --name=locator1 --J=-Djava.rmi.server.hostname=$LOCATOR_HOST
+gfsh start locator --name=locator1 --jmx-manager-hostname-for-clients=$LOCATOR_HOST
 
 ssh machine2 "gfsh start server --name=server1 --locators=machine1[10334]"
 ssh machine3 "gfsh start server --name=server2 --locators=machine1[10334]"
