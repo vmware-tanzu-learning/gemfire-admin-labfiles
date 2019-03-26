@@ -10,4 +10,11 @@ gfsh start server --name=server4 --locators=machine1[10334] &
 # Wait for all background processess to complete
 wait
 
+echo "Server start complete. Current member list:"
 gfsh -e "connect" -e "list members"
+
+echo "Creating regions if they don't exist and loading data. Be sure you have your data files in $GEMFIRE_WORKING_DIR"
+gfsh -e "run --file=createRegions.gfsh"
+
+java com.bookshop.buslogic.BookLoader
+java com.bookshop.buslogic.CustomerLoader

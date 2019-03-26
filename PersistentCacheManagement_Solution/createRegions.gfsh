@@ -1,0 +1,9 @@
+connect
+destroy region --name=BookMaster --if-exists=true
+destroy region --name=Customer --if-exists=true
+
+create disk-store --name=ServerPersistence --dir=/var/gemfire/persist
+
+create region --name=BookMaster --type=REPLICATE_PERSISTENT --disk-store=ServerPersistence --if-not-exists
+
+create region --name=Customer --type=PARTITION_REDUNDANT_PERSISTENT --disk-store=ServerPersistence --if-not-exists
