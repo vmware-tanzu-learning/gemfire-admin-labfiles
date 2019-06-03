@@ -10,6 +10,7 @@ import java.io.*;
 import java.net.URL;
 import java.text.NumberFormat;
 import java.text.ParseException;
+import java.util.Locale;
 
 
 public class BookLoader
@@ -56,7 +57,7 @@ public class BookLoader
 		//  BookMaster(int itemNumber, String description, float retailCost,
 		//			int yearPublished, String author, String title)
 		public void populateBooks() {
-			NumberFormat formatter = NumberFormat.getCurrencyInstance();
+			NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
 			URL url = getClass().getResource(BOOKFILE);
 			InputStream resource = getClass().getResourceAsStream(BOOKFILE);
 			try (BufferedReader br = new BufferedReader(new InputStreamReader(resource))) {
