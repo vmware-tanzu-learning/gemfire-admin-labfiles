@@ -26,4 +26,5 @@ systemctl start ntpd
 tar -xzf $TARFILE -C /opt/pivotal
 GEMPATH=$(find /opt/pivotal -name "pivotal-gemfire*")
 chgrp -R gemfire $GEMPATH
+echo "GEMFIRE=$GEMPATH" >> /home/student/.bashrc
 echo "PATH=$PATH:$GEMPATH/bin" >> /home/student/.bashrc
